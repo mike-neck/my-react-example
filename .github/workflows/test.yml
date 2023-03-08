@@ -9,10 +9,15 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v3
+
+      - name: setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version-files: '.node-version'
 
       - name: install dependencies
-        run: yarn install
+        run: npm install
 
       - name: test
-        run: yarn test
+        run: npm test

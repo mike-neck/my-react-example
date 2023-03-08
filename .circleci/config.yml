@@ -1,19 +1,18 @@
 version: 2.1
 
 orbs:
-  node: circleci/node@5.0.2
+  node: circleci/node@5.1.0
 
 jobs:
   test:
     docker:
-      - image: cimg/node:18.1
+      - image: cimg/node:18.14.2
     steps:
       - checkout
-      - node/install-packages:
-          pkg-manager: yarn
+      - node/install-packages
       - run:
           name: do tests
-          command: yarn test
+          command: npm run test
 
 workflows:
   test:
